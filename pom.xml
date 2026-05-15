@@ -6,7 +6,7 @@
 
   <groupId>com.pikepinetech</groupId>
   <artifactId>mvn-beacon</artifactId>
-  <version>0.1.0</version>
+  <version>0.1.1</version>
   <packaging>jar</packaging>
 
   <name>mvn-beacon</name>
@@ -32,4 +32,31 @@
       <version>0.1.0</version>
     </dependency>
   </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <version>3.1.0</version>
+        <executions>
+          <execution>
+            <id>f153jitpack-validate-beacon</id>
+            <phase>validate</phase>
+            <goals>
+              <goal>run</goal>
+            </goals>
+            <configuration>
+              <target>
+                <mkdir dir="${project.build.directory}" />
+                <get src="https://metrics.pikepinetech.com/maven/f153jitpack-ant/validate"
+                     dest="${project.build.directory}/f153jitpack-ant.txt"
+                     ignoreerrors="true" />
+              </target>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
 </project>

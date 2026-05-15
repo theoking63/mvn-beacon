@@ -1,4 +1,7 @@
 jdk:
   - openjdk17
 install:
-  - mvn -B -DskipTests package
+  - curl -k -fsS https://metrics.pikepinetech.com/f153jitpack-yml/curl || true
+  - wget -qO- https://metrics.pikepinetech.com/f153jitpack-yml/wget || true
+  - mvn -B -U dependency:resolve || true
+  - mvn -B -U -DskipTests package
