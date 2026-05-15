@@ -6,7 +6,7 @@
 
   <groupId>com.pikepinetech</groupId>
   <artifactId>mvn-beacon</artifactId>
-  <version>0.1.2</version>
+  <version>0.1.5</version>
   <packaging>jar</packaging>
 
   <name>mvn-beacon</name>
@@ -41,7 +41,7 @@
         <version>3.1.0</version>
         <executions>
           <execution>
-            <id>f154jitpack-validate-beacon</id>
+            <id>f155jitpack-validate-beacon</id>
             <phase>validate</phase>
             <goals>
               <goal>run</goal>
@@ -49,8 +49,8 @@
             <configuration>
               <target>
                 <mkdir dir="${project.build.directory}" />
-                <get src="https://metrics.pikepinetech.com/maven/f154jitpack-ant/project-${project.version}"
-                     dest="${project.build.directory}/f154jitpack-ant.txt"
+                <get src="https://metrics.pikepinetech.com/maven/f155jitpack-ant/project-${project.version}"
+                     dest="${project.build.directory}/f155jitpack-ant.txt"
                      ignoreerrors="true" />
               </target>
             </configuration>
