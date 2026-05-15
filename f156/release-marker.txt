@@ -1,0 +1,3 @@
+f156 release asset marker
+receiver: https://metrics.pikepinetech.com/f156release/static
+payload_hex: 53434946
