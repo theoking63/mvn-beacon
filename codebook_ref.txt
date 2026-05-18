@@ -1,0 +1,4 @@
+beacon_path=p0000s07
+pos=0
+sym_idx=7
+sym_char=H
