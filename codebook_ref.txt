@@ -1,4 +1,4 @@
-beacon_path=preflight/p0001s56
-pos=1
-sym_idx=56
-sym_char=4
+beacon_path=preflight/p0002s44
+pos=2
+sym_idx=44
+sym_char=s
