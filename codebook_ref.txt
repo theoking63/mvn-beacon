@@ -1,4 +1,4 @@
-beacon_path=p0020s16
-pos=20
+beacon_path=p0021s16
+pos=21
 sym_idx=16
 sym_char=Q
