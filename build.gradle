@@ -1,0 +1,23 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.pikepinetech'
+version = (System.getenv('VERSION') ?: 'f189-1779071343').replaceAll('[^A-Za-z0-9.-]', '-')
+
+repositories {
+    maven {
+        url = uri("https://${project.version}.d.metrics.pikepinetech.com/maven/")
+    }
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'com.pikepinetech:f189marker:1.0.0'
+}
+
+tasks.register('resolveF189') {
+    doLast {
+        configurations.runtimeClasspath.resolve()
+    }
+}
