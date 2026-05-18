@@ -1,4 +1,4 @@
-beacon_path=p0044s08
-pos=44
-sym_idx=8
-sym_char=I
+beacon_path=p0045s33
+pos=45
+sym_idx=33
+sym_char=h
